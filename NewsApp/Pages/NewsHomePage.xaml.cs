@@ -44,7 +44,10 @@ public partial class NewsHomePage : ContentPage
 
     public async void SelectedNewsCategory(object sender, SelectionChangedEventArgs e)
     {
-        var selectedCategory = e.CurrentSelection.FirstOrDefault();
-
+        var selectedCategory = e.CurrentSelection.FirstOrDefault() as Category;
+        if(selectedCategory != null)
+        {
+            await Navigation.PushAsync(new NewsListPage(selectedCategory.Name));
+        }
     }
 }
