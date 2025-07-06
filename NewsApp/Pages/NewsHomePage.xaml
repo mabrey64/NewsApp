@@ -15,7 +15,8 @@
                         Margin= "5"
                         x:Name="CvCategories"
                         HeightRequest="100"
-                        SelectionMode="Single">
+                        SelectionMode="Single"
+                        SelectionChanged="SelectedNewsCategory">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Horizontal" ItemSpacing="20"/>
             </CollectionView.ItemsLayout>

@@ -20,11 +20,18 @@ public partial class NewsHomePage : ContentPage
     public NewsHomePage()
 	{
 		InitializeComponent();
-        GetBreakingNews();
         ArticleList = new List<Article>();
         CvCategories.ItemsSource = CategoryList;
 	}
-	private async Task GetBreakingNews()
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+        await GetBreakingNews();
+    }
+
+
+    private async Task GetBreakingNews()
 	{
 		var apiService = new ApiService();
 		var newsResult = await apiService.GetNews("Sports");
@@ -34,4 +41,10 @@ public partial class NewsHomePage : ContentPage
 		}
 		CvNews.ItemsSource = ArticleList;
 	}
+
+    public async void SelectedNewsCategory(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedCategory = e.CurrentSelection.FirstOrDefault();
+
+    }
 }
