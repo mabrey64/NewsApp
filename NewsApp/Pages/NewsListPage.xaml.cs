@@ -33,4 +33,14 @@ public partial class NewsListPage : ContentPage
             ArticleList.Add(item);
         }
     }
+
+    private async void OnNewsArticleSelected(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedArticle = e.CurrentSelection.FirstOrDefault() as Article;
+        if (selectedArticle != null)
+        {
+            await Navigation.PushAsync(new NewsDetailPage(selectedArticle));
+            CvArticles.SelectedItem = null; // Deselect the item
+        }
+    }
 }

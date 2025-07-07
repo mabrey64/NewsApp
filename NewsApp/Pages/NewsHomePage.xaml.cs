@@ -50,4 +50,13 @@ public partial class NewsHomePage : ContentPage
             await Navigation.PushAsync(new NewsListPage(selectedCategory.Name));
         }
     }
+    private async void OnNewsArticleSelected(object sender, SelectionChangedEventArgs e)
+    {
+        var selectedArticle = e.CurrentSelection.FirstOrDefault() as Article;
+        if (selectedArticle != null)
+        {
+            await Navigation.PushAsync(new NewsDetailPage(selectedArticle));
+            ((CollectionView)sender).SelectedItem = null; // Deselect the item
+        }
+    }
 }
