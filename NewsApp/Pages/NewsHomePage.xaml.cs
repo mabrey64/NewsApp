@@ -27,7 +27,9 @@ public partial class NewsHomePage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+        IsBusy = true;
         await GetBreakingNews();
+        IsBusy = false;
     }
 
 

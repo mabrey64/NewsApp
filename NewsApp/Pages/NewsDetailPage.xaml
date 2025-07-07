@@ -6,7 +6,7 @@
              xmlns:models="clr-namespace:NewsApp.Models">
     <ScrollView>
         <VerticalStackLayout Padding="15" Spacing="10">
-        <Image Source="{Binding ImageUrl}"
+        <Image Source="{Binding Image}"
                 Aspect="AspectFill"
                 HeightRequest="250"
                 HorizontalOptions="FillAndExpand"/>

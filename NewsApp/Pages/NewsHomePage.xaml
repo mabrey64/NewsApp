@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="NewsApp.Pages.NewsHomePage"
-             Title="NewsHomePage">
+             Title="NewsHomePage"
+             x:Name="Page">
     <Grid RowDefinitions="Auto, Auto, *">
         <Label Grid.Row="0"
                Text="News Pilot"
@@ -32,6 +33,16 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
+        <ActivityIndicator 
+            Grid.RowSpan="3"
+            IsRunning="{Binding IsBusy, Source={x:Reference Page}}"
+            IsVisible="{Binding IsBusy, Source={x:Reference Page}}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Color="Blue"
+            WidthRequest="60"
+            HeightRequest="60"/>
+        
         <CollectionView Grid.Row="2"
                         Margin= "5"
                         x:Name="CvNews"
